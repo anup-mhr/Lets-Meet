@@ -1,0 +1,14 @@
+{
+  "name": "lets-meet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build":"cd Backend && npm ci && npm run build",
+    "start":"cd Backend && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,208 @@
+.form-data {
+  flex-direction: column;
+  border: 1px black solid;
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px 10px;
+}
+
+.align-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.h-100 {
+  height: 100vh;
+}
+.dashboard {
+  display: flex;
+  height: 87vh;
+}
+
+.sideImg {
+  float: left;
+  width: 50%;
+  color: #ffffff;
+  min-height: 100%;
+}
+.sideImg img {
+  width: 100%;
+  height: 100%;
+}
+
+.main-body {
+  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fbfbfb;
+  width: 50%;
+  padding: 2.5%;
+  min-height: 80vh;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn {
+  display: inline-block;
+  background: #376ae0;
+  padding: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  border-radius: 5px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-danger {
+  background: red;
+}
+
+.btn-default {
+  background-color: #ccc;
+  color: #4d4d4d;
+}
+
+.pull-right {
+  float: right;
+}
+
+/* form css starts */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: #376ae0;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #1c50c7;
+}
+
+.form-group {
+  margin-top: 10px;
+}
+
+.label-danger {
+  color: rgb(229, 38, 38);
+}
+
+.login-form {
+  width: 300px;
+  margin: 100px auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.container {
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 100%;
+  overflow-y: auto;
+  min-width: 330px;
+  width: 400px;
+  margin: 0 auto;
+  padding: 1%;
+}
+
+.user-message {
+  display: flex;
+
+  /* border: 1px solid black;
+  border-radius: 10px; */
+  width: 100%;
+  margin: 5px auto;
+  padding: 1%;
+}
+.message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.profile {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+.profile img {
+  height: 100%;
+  width: 100%;
+}
+.user-messageData {
+  display: flex;
+  margin-block: 10px;
+  padding: 5px;
+}
+
+/* HEADER SECTION */
+.header {
+  background-color: black;
+  padding: 20px;
+  color: rgb(130 166 249);
+  height: 12vh;
+}
+.vi-flex-container {
+  display: flex;
+  align-items: stretch;
+}
+
+/* Video call css */
+.Controls {
+  margin: 3px;
+  padding: 5px;
+  height: 27px;
+  width: 98%;
+  background-color: rgba(255, 226, 104, 0.1);
+  margin-top: -8.5vh;
+  filter: brightness(1);
+  z-index: 1;
+  border-radius: 6px;
+}
+.ImgComponent {
+  cursor: pointer;
+  height: 25px;
+}
+.ControlSmall {
+  margin: 3px;
+  padding: 5px;
+  height: 16px;
+  width: 98%;
+  margin-top: -6vh;
+  filter: brightness(1);
+  z-index: 1;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+}
+.ImgComponentSmall {
+  height: 15px;
+  text-align: left;
+  opacity: 0.5;
+}

@@ -90,7 +90,7 @@ export default function Dashboard({
 
       <div className="dashboard">
         <div className="sideImg">
-          <img src="./public/assets/meeting.jfif" alt="" />
+          <img src="/assets/meeting.jfif" alt="" />
         </div>
         <div className="main-body">
           <h1 style={{ color: "#1649bd", fontSize: "40px" }}>Meeting for Everyone</h1>

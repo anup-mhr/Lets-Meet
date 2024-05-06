@@ -18,7 +18,7 @@ const io = new Server(server, {
 });
 
 let chatRoom = "";
-let count =0
+let count = 0;
 
 io.on("connection", async (socket) => {
   console.log("a user connected", socket.id);
@@ -110,8 +110,8 @@ io.on("connection", async (socket) => {
   socket.on("join_video_chat", async (roomID) => {
     const users = await roomService.getUsersDataByRoom(roomID);
     const usersInThisRoom = users.map((user) => user.socket_id).filter((id) => id !== socket.id);
-    count+=1
-    socket.emit("all users", {usersInThisRoom, count});
+    count += 1;
+    socket.emit("all users", { usersInThisRoom, count });
   });
   socket.on("sending signal", (payload) => {
     console.log("receiving singnal from backend");
@@ -135,9 +135,9 @@ io.on("connection", async (socket) => {
     socket.broadcast.emit("change", payload);
   });
 
-  socket.on('leave_video_chat',(userId:string)=>{
-    socket.broadcast.emit('user_left_video',userId)
-  })
+  socket.on("leave_video_chat", (userId: string) => {
+    io.to(chatRoom).emit("user_left_video", userId);
+  });
   //FOR VIDEO CALLING ENDS
 
   socket.on("disconnect", async () => {

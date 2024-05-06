@@ -23,7 +23,7 @@ export default function UserItems({ user, username, socket, room }: UserItemsPro
       }}
     >
       <div className="profile">
-        <img src="../src/assets/user.jpg" alt="" />
+        <img src="/assets/user.jpg" alt="" />
       </div>
       <div>
         <p>{user === username ? "You" : user}</p>

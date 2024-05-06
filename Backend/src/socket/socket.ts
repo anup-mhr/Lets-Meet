@@ -56,7 +56,6 @@ io.on("connection", async (socket) => {
   socket.on("send_message", async (data) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { message, username, room, _createdtime_ } = data;
-    console.log(data);
     io.in(room).emit("receive_message", data);
     //  SAVE MSG IN DB
     await messageService.createMessage(message, room, username, _createdtime_);
@@ -68,7 +67,6 @@ io.on("connection", async (socket) => {
     const targetSocketId = await roomService.getSocketIdByUsername(user);
     if (!targetSocketId || targetSocketId === undefined) return;
     const targetSocket = io.sockets.sockets.get(targetSocketId);
-    console.log("target socket_id", targetSocket);
     if (targetSocket) {
       const _createdtime_ = Date.now();
       await roomService.leaveRoom(targetSocketId);
@@ -81,7 +79,6 @@ io.on("connection", async (socket) => {
       });
       io.to(room).emit("is_kickout", user);
       targetSocket.leave(room);
-      console.log(`${user} has been kicked out`);
     }
   });
 
@@ -103,7 +100,6 @@ io.on("connection", async (socket) => {
       _createdtime_,
     });
     socket.to(room).emit("user_left", username);
-    console.log(`${username} has left the chat room`);
   });
 
   //FOR VIDEO CALLING BEGINS
@@ -114,13 +110,11 @@ io.on("connection", async (socket) => {
     socket.emit("all users", { usersInThisRoom, count });
   });
   socket.on("sending signal", (payload) => {
-    console.log("receiving singnal from backend");
     const { userToSignal, signal, callerID } = payload;
     io.to(userToSignal).emit("user joined", {
       signal: signal,
       callerID: callerID,
     });
-    console.log("user joined from backend");
   });
 
   socket.on("returning signal", (payload) => {

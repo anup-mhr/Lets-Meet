@@ -30,14 +30,13 @@ export default function Dashboard({
   };
 
   const joinMeeting = async () => {
-    console.log('room', room)
     const res = await fetch(`${process.env.SOCKET_URL}/api/room/checkRoomStatus`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-      body: JSON.stringify({ room_id:room }),
+      body: JSON.stringify({ room_id: room }),
     });
     if (res.status === 403) {
       toast.error("Room not available");
@@ -52,13 +51,11 @@ export default function Dashboard({
       return;
     }
     const data = await res.json();
-    console.log(data.data);
     if (!data.data) {
       toast.error("Room not available");
       return;
     }
 
-    console.log("join meeting");
     if (room !== "" && username !== "") {
       socket.emit("join_room", { username, room });
     }

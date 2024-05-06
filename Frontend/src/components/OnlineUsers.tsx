@@ -13,7 +13,6 @@ export default function OnlineUsers({ socket, username, room }: onlineUserseProp
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     socket.on("chatroom_users", (data: any) => {
-      console.log(data);
       setRoomUsers(data);
     });
 

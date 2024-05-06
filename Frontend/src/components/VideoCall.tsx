@@ -125,11 +125,6 @@ export default function VideoCall({ socket, room }: VideoCallProps) {
         });
       });
 
-      peer.on("close", () => {
-        // Handle peer connection closed
-        console.log("Peer connection closed");
-      });
-
       return peer;
     }
     const videoConstraints = {

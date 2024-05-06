@@ -10,7 +10,6 @@ export const roomService = {
         .createQueryBuilder()
         .where(`room = '${room}'`)
         .getMany();
-      // console.log("userList from userService", userRepository);
       const users = userRepository.map((user) => user.username);
       return users;
     } catch (error) {
@@ -41,7 +40,6 @@ export const roomService = {
   async isRoomExist(room: string): Promise<boolean> {
     const roomRepository = AppDataSource.getRepository(ChatUsers);
     const data = await roomRepository.findOneBy({ room: room });
-    console.log('is room exist',data);
     if (!data) return false;
     return true;
   },

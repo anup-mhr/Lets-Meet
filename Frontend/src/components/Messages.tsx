@@ -47,7 +47,6 @@ export default function Messages({ socket, username, room }: messagesProps) {
   //Runs whenever a socket event is received from the server
   useEffect(() => {
     socket.on("receive_message", (data: messages) => {
-      console.log(data);
       setMessagesReceived((state) => [
         ...state,
         {
@@ -94,7 +93,6 @@ export default function Messages({ socket, username, room }: messagesProps) {
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     socket.on("last_100_messages", (last100Messages: any) => {
-      console.log("last 100 messages", last100Messages);
       last100Messages = sortMessagesByDate(last100Messages);
       setMessagesReceived((state) => [...last100Messages, ...state]);
     });

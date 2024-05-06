@@ -44,7 +44,6 @@ export default function LoginForm() {
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      console.log(error.message);
       toast.error("Something went wrong");
     }
   };

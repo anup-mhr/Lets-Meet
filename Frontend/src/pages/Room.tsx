@@ -47,7 +47,6 @@ export default function Room({ socket, username, room, handleRoom }: roomProps) 
           body: JSON.stringify({ room_id: room }),
         });
         const data = await res.json();
-        console.log(data);
         if (!data.data) {
           toast.error("Room not available");
           navigate("/dashboard", { replace: true });

@@ -73,7 +73,6 @@ export default function SignUpForm() {
       if (data.status === "success") navigate("/login");
     } catch (error) {
       toast.error("Something went wrong");
-      console.log(error);
     }
   };
 

@@ -36,7 +36,6 @@ export default function Room({ socket, username, room, handleRoom }: roomProps) 
       return;
     }
     const checkRoomStatus = async (room: string) => {
-      setTimeout(() => {}, 5000);
       try {
         const res = await fetch(`${process.env.SOCKET_URL}/api/room/checkRoomStatus`, {
           method: "POST",
@@ -57,7 +56,14 @@ export default function Room({ socket, username, room, handleRoom }: roomProps) 
         navigate("/dashboard", { replace: true });
       }
     };
-    checkRoomStatus(roomId);
+
+    const delayedCheckRoomStatus = setTimeout(() => {
+      checkRoomStatus(roomId);
+    }, 5000);
+
+    return () => {
+      clearTimeout(delayedCheckRoomStatus);
+    };
   }, [roomId, navigate]);
 
   return (

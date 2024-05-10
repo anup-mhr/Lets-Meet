@@ -71,6 +71,7 @@ export default function SignUpForm() {
 
       const data = await res.json();
       if (data.status === "success") navigate("/login");
+      toast.info("Account created successfully");
     } catch (error) {
       toast.error("Something went wrong");
     }

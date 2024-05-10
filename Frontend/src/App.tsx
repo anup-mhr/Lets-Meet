@@ -25,11 +25,11 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" key="home" element={<Login />} />
-          <Route path="/login" key='login' element={<Login />} />
-          <Route path="/signup" key='signup' element={<Signup />} />
+          <Route path="/login" key="login" element={<Login />} />
+          <Route path="/signup" key="signup" element={<Signup />} />
           <Route
             path="/dashboard"
-            key='dashboard'
+            key="dashboard"
             element={
               <PrivateRoute
                 component={Dashboard}
@@ -43,7 +43,7 @@ function App() {
           />
           <Route
             path="/room/:roomId"
-            key='room'
+            key="room"
             element={
               <PrivateRoute
                 component={Room}

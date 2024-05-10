@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Circles } from "react-loader-spinner";
 
 export default function LoginForm() {
   const navigate = useNavigate();
@@ -8,6 +10,7 @@ export default function LoginForm() {
     password: "",
     email: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUser({ ...user, [event.target.name]: event.target.value });
@@ -17,6 +20,7 @@ export default function LoginForm() {
     e.preventDefault();
 
     try {
+      setLoading(true);
       const res = await fetch(`${process.env.SOCKET_URL}/api/auth/login`, {
         method: "POST",
         headers: {
@@ -45,10 +49,14 @@ export default function LoginForm() {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       toast.error("Something went wrong");
+    } finally {
+      setLoading(false);
     }
   };
 
-  return (
+  return loading ? (
+    <Circles height="80" width="80" color="#376ae0" ariaLabel="circles-loading" />
+  ) : (
     <div className="login-form">
       <h1 className="form-title">Login</h1>
       <form action="" onSubmit={handleSubmit}>

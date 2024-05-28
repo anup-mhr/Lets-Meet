@@ -27,7 +27,7 @@ export const AppDataSource = new DataSource({
   type: "postgres",
   ...connectionData,
   synchronize: true,
-  logging: NODE_ENV === "dev" && true,
+  logging: NODE_ENV === "dev" && false,
   entities: [User, ChatUsers, Message],
   subscribers: [],
   migrations: [],
